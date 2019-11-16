@@ -1,0 +1,37 @@
+package dadtask;
+
+public class VectorApplication {
+
+    public static void main(String[] args) {
+
+        Vector p = new Vector(11,15,21);
+        Vector q = new Vector(7,10,28);
+
+        ViewResult.showScalarResult(p.scalarProduct(q));
+    }
+}
+
+class ViewResult {
+    public static void showScalarResult(double d) {
+        System.out.println("Скалярное произведение векторов: " + d);
+    }
+}
+
+class Vector {
+
+    private double[] array = new double[3];
+
+    public Vector(double... x) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = x[i];
+        }
+    }
+
+    public double scalarProduct(Vector q) {
+        double result = 0;
+        for (int i = 0; i < 3; i++) {
+            result += this.array[i] * q.array[i];
+        }
+        return result;
+    }
+}
